@@ -16,8 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 4. COPY ไฟล์โค้ดและ HTML ที่เหลือ
 COPY app.py .
 COPY templates/ templates/
-#COPY home.html . 
 COPY init.sql . 
+# หมายเหตุ: ไม่ต้องมี COPY home.html . อีกแล้ว
 
 EXPOSE 5000
 ENV FLASK_APP=app.py

@@ -3,7 +3,7 @@ name: Docker CI/CD for Flask App
 on:
   push:
     # แก้จาก [ main ] เป็น [ "master" ] ให้ตรงกับเครื่องคุณ
-    branches: [ "master" ] 
+    branches: [ "app" ] 
 
 jobs:
   build-and-push:
@@ -28,4 +28,4 @@ jobs:
           context: .
           push: true
           # ตรวจสอบชื่อ Image ให้ตรงกับที่คุณต้องการ (Username/Repository:Tag)
-          tags: ${{ secrets.DOCKER_USERNAME }}/my-flask-app:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/amonpat:latest

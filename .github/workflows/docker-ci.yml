@@ -28,4 +28,4 @@ jobs:
           context: .
           push: true
           # ตรวจสอบชื่อ Image ให้ตรงกับที่คุณต้องการ (Username/Repository:Tag)
-          tags: amonpat/app:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/app:latest

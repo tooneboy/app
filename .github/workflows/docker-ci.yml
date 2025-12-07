@@ -3,7 +3,7 @@ name: Docker CI/CD for Flask App
 on:
   push:
     # แก้จาก [ main ] เป็น [ "master" ] ให้ตรงกับเครื่องคุณ
-    branches: [ "amonpat" ] 
+    branches: [ "master" ] 
 
 jobs:
   build-and-push:

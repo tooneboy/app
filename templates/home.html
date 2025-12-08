@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="th">
+ <head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>วิทยาลัยเทคนิคนางรอง - อำเภอนางรอง บุรีรัมย์</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+  <style>
+    
+    /* CSS Settings */
+    body { box-sizing: border-box; font-family: 'Sarabun', sans-serif; background: linear-gradient(135deg, #0a4d3c 0%, #1a5f4e 100%); color: #ffffff; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; width: 100%; }
+    .page-wrapper { width: 100%; min-height: 100%; display: flex; flex-direction: column; }
+    
+    /* Header & Nav */
+    header { width: 100%; background: rgba(10, 77, 60, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(34, 197, 94, 0.2); position: sticky; top: 0; z-index: 1000; }
+    .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; }
+    .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .logo-section { display: flex; align-items: center; gap: 1rem; }
+    .logo { width: 60px; height: 60px; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4); }
+    .logo-icon { font-size: 2rem; }
+    .school-name { font-size: 1.5rem; font-weight: 700; color: #22c55e; text-shadow: 0 2px 10px rgba(34, 197, 94, 0.4); }
+    
+    /* Menu */
+    .menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #22c55e; cursor: pointer; padding: 0.5rem; }
+    nav { display: flex; align-items: center; gap: 0.5rem; }
+    nav a, .dropdown-toggle { color: #ffffff; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; transition: all 0.3s ease; font-weight: 500; background: none; border: none; font-size: 1rem; font-family: 'Sarabun', sans-serif; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; }
+    nav a:hover, .dropdown-toggle:hover { background: rgba(34, 197, 94, 0.15); color: #22c55e; transform: translateY(-2px); }
+    
+    /* Dropdown */
+    .dropdown { position: relative; }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: rgba(10, 77, 60, 0.98); border-radius: 8px; min-width: 200px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); padding: 0.5rem 0; margin-top: 0.5rem; z-index: 100; }
+    .dropdown-menu.active { display: block; }
+    .dropdown-menu a { display: block; padding: 0.75rem 1.5rem; border-radius: 0; }
+    .dropdown-menu a:hover { background: rgba(34, 197, 94, 0.2); transform: translateX(5px); }
+
+    /* Hero Section */
+    .hero-section { width: 100%; min-height: 600px; background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.1) 100%); display: flex; align-items: center; justify-content: center; padding: 4rem 2rem; position: relative; overflow: hidden; }
+    .hero-section::before { content: ''; position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(34, 197, 94, 0.2) 0%, transparent 70%); border-radius: 50%; top: -100px; right: -100px; animation: pulse 4s ease-in-out infinite; }
+    .hero-section::after { content: ''; position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(22, 163, 74, 0.15) 0%, transparent 70%); border-radius: 50%; bottom: -150px; left: -150px; animation: pulse 5s ease-in-out infinite reverse; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 0.8; } }
+    .hero-content { max-width: 900px; text-align: center; z-index: 1; }
+    .hero-image { width: 200px; height: 200px; margin: 0 auto 2rem; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 40px rgba(34, 197, 94, 0.5); animation: float 3s ease-in-out infinite; border: 4px solid rgba(255, 255, 255, 0.2); }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+    .hero-image-icon { font-size: 5rem; }
+    .hero-title { font-size: 3rem; font-weight: 700; color: #ffffff; margin-bottom: 1rem; text-shadow: 0 4px 20px rgba(34, 197, 94, 0.4); line-height: 1.2; }
+    .hero-description { font-size: 1.5rem; color: #22c55e; margin-bottom: 0.5rem; font-weight: 600; text-shadow: 0 2px 10px rgba(34, 197, 94, 0.3); }
+    .hero-subtitle { font-size: 1.25rem; color: #e0e0e0; margin-bottom: 2.5rem; line-height: 1.8; }
+    .hero-button { display: inline-block; padding: 1rem 2.5rem; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); color: #ffffff; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1rem; box-shadow: 0 6px 25px rgba(34, 197, 94, 0.5); transition: all 0.3s ease; border: none; cursor: pointer; }
+    .hero-button:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(34, 197, 94, 0.7); background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); }
+    
+    /* Footer */
+    footer { width: 100%; background: rgba(10, 77, 60, 0.95); padding: 2rem; text-align: center; border-top: 2px solid rgba(34, 197, 94, 0.3); }
+    .footer-content { max-width: 1200px; margin: 0 auto; }
+    .footer-copyright { font-size: 1rem; color: #e0e0e0; margin-bottom: 1rem; }
+    .social-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #22c55e; text-decoration: none; font-size: 1.1rem; padding: 0.75rem 1.5rem; background: rgba(34, 197, 94, 0.15); border-radius: 50px; transition: all 0.3s ease; }
+    .social-link:hover { background: rgba(34, 197, 94, 0.25); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3); }
+    .footer-dev { font-size: 0.9rem; color: #999; margin-top: 1rem; }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .header-top { margin-bottom: 0; }
+      .menu-toggle { display: block; }
+      nav { display: none; flex-direction: column; width: 100%; gap: 0; padding-top: 1rem; }
+      nav.active { display: flex; }
+      nav a, .dropdown-toggle { width: 100%; text-align: left; border-radius: 0; padding: 1rem 1.5rem; }
+      .dropdown-menu { position: static; box-shadow: none; background: rgba(34, 197, 94, 0.1); margin-top: 0; }
+      .school-name { font-size: 1.2rem; }
+      .logo { width: 50px; height: 50px; }
+      .logo-icon { font-size: 1.5rem; }
+      .hero-title { font-size: 2rem; }
+      .hero-description { font-size: 1.2rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .hero-image { width: 150px; height: 150px; }
+      .hero-image-icon { font-size: 3.5rem; }
+    }
+    @view-transition { navigation: auto; }
+  </style>
+ </head>
+ <body>
+  <div class="page-wrapper">
+   <header>
+    <div class="header-content">
+     <div class="header-top">
+      <div class="logo-section">
+       <div class="logo"><span class="logo-icon">🎓</span></div>
+       <div class="school-name" id="schoolName">เทคนิคนางรอง</div>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="เปิด/ปิดเมนู">☰</button>
+     </div>
+     <nav id="mainNav">
+      <a href="#home">หน้าแรก</a>
+      <a href="#about">เกี่ยวกับเรา</a>
+      <div class="dropdown">
+       <button class="dropdown-toggle" id="courseDropdown"> หลักสูตร <span>▸</span> </button>
+       <div class="dropdown-menu" id="courseMenu">
+        <a href="#course-pvs">หลักสูตร ปวช.</a>
+        <a href="#course-pvt">หลักสูตร ปวส.</a>
+       </div>   
+      </div>
+      <a href="/login">คลิกเพื่อไปหน้า Login</a>
+     </nav>
+    </div>
+   </header>
+   <main>
+    <section class="hero-section" id="home">
+     <div class="hero-content">
+      <div class="hero-image"><span class="hero-image-icon">🏫</span></div>
+      <h1 class="hero-title" id="heroTitle">วิทยาลัยเทคนิคนางรอง</h1>
+      <p class="hero-description" id="heroDescription">อำเภอนางรอง จังหวัดบุรีรัมย์</p>
+      <p class="hero-subtitle" id="heroSubtitle">สถาบันการศึกษาด้านอาชีวศึกษา พัฒนาบุคลากรที่มีคุณภาพสู่สังคมและอุตสาหกรรม</p>
+      <button class="hero-button" id="heroButton">ดูรายละเอียดเพิ่มเติม</button>
+     </div>
+    </section>
+   </main>
+   <footer>
+    <div class="footer-content">
+     <div class="footer-copyright" id="footerCopyright">© 2025 เทคนิคนางรอง</div>
+     <div class="footer-social">
+      <a href="https://nrtech.ac.th" target="_blank" rel="noopener noreferrer" class="social-link">
+       <span class="facebook-icon">📘</span> <span>Facebook Fanpage</span>
+      </a>
+     </div>
+     <div class="footer-dev" id="footerDev">Dev by Pichayanart Reerak</div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const courseDropdown = document.getElementById('courseDropdown');
+    const courseMenu = document.getElementById('courseMenu');
+
+    menuToggle.addEventListener('click', () => { mainNav.classList.toggle('active'); });
+    courseDropdown.addEventListener('click', (e) => { e.stopPropagation(); courseMenu.classList.toggle('active'); });
+    document.addEventListener('click', (e) => { if (!courseDropdown.contains(e.target) && !courseMenu.contains(e.target)) { courseMenu.classList.remove('active'); } });
+    document.getElementById('heroButton').addEventListener('click', () => { window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); });
+  </script>
+ </body>
+</html>

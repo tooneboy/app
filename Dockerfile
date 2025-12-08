@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get install -y default-libmysqlclient-dev gcc && \
     rm -rf /var/lib/apt/lists/*
 
-# 3. ติดตั้ง Python dependencies
+# 3. ติดตั้ง Python dependencies 
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 4. COPY ไฟล์โค้ดและ HTML ที่เหลือ

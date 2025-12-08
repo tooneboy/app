@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # 1. ฐานข้อมูล (MySQL)
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: login_system
+      MYSQL_ROOT_PASSWORD: 1234
+    volumes: 
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p1234"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+
+  # 2. ตัวจัดการฐานข้อมูล (phpMyAdmin สำหรับ Docker)
+  pma:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"  # เข้าผ่านพอร์ต 8080
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: 1234
+    depends_on:
+      - db
+
+  # 3. แอป Python ของคุณ
+  flask_app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: 1234
+      DB_NAME: login_system
+
+volumes: 
+  db_data:

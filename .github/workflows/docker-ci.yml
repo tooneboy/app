@@ -2,7 +2,7 @@ name: Docker CI/CD for Flask App
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "app" ]
 
 jobs:
   build-and-push:
